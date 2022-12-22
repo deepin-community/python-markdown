@@ -1,0 +1,573 @@
+python-markdown (3.3.4-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Bump Standards-Version to 4.5.1, no changes needed.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Thu, 25 Feb 2021 14:37:43 +0300
+
+python-markdown (3.3.3-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Mon, 26 Oct 2020 20:13:36 +0300
+
+python-markdown (3.3.2-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Mon, 19 Oct 2020 21:56:41 +0300
+
+python-markdown (3.3.1-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Drop pygments_fixes.diff, included in the new release.
+  * Break python3-mdx-math < 0.7-2 to ease migration to testing.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Tue, 13 Oct 2020 13:35:18 +0300
+
+python-markdown (3.3-2) unstable; urgency=medium
+
+  * Backport some Pygments-related fixes from upstream:
+    - Ensure consistent handling of classes by fenced_code and codehilite.
+    - Update tests for Pygments 2.7.1.
+    - Pygments specific tests now only run when the pygments version installed
+      matches the expected version.
+  * Remove skip_pygments_tests.diff, incorporated into the new patch.
+  * Export PYGMENTS_VERSION when running the tests.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Sat, 10 Oct 2020 20:54:30 +0300
+
+python-markdown (3.3-1) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * d/control: Update Maintainer field with new Debian Python Team
+    contact address.
+  * d/control: Update Vcs-* fields with new Debian Python Team Salsa
+    layout.
+
+  [ Dmitry Shachnev ]
+  * New upstream release.
+  * Rebase skip_pygments_tests.diff.
+  * Fix Lintian acute-accent-in-manual-page warning.
+  * Mention python3-yaml instead of python-yaml in the manpage.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Wed, 07 Oct 2020 14:45:58 +0300
+
+python-markdown (3.2.2-2) unstable; urgency=medium
+
+  * Add back dependency on python3-pkg-resources, it is needed for
+    /usr/bin/markdown_py script (closes: #963336).
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Mon, 22 Jun 2020 11:30:39 +0300
+
+python-markdown (3.2.2-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Remove python3-packaging and python3-pkg-resources dependencies,
+    python-markdown now uses importlib.metadata from the standard library.
+  * Set Rules-Requires-Root: no.
+  * Update to debhelper compat level 13.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Tue, 19 May 2020 20:19:55 +0300
+
+python-markdown (3.2.1-1) unstable; urgency=medium
+
+  [ Sandro Tosi ]
+  * debian/python-markdown-doc.doc-base
+    - fix doc-base-file-references-missing-file lintian error
+
+  [ Dmitry Shachnev ]
+  * New upstream release.
+  * Remove dh_auto_install override, it is useless now.
+  * Skip the pygments-related tests until we have Pygments 2.4.
+  * Add Markdown.egg-info/SOURCES.txt to debian/clean.
+  * Update debian/copyright.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Tue, 07 Apr 2020 12:18:09 +0300
+
+python-markdown (3.1.1-4) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+
+  [ Sandro Tosi ]
+  * Drop python2 support; Closes: #937907
+
+ -- Sandro Tosi <morph@debian.org>  Sat, 04 Apr 2020 19:57:53 -0400
+
+python-markdown (3.1.1-3) unstable; urgency=medium
+
+  * Drop python-tidylib from build-dependencies and test dependencies,
+    to allow for its removal (see #938217).
+  * Bump Standards-Version to 4.5.0, no changes needed.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Thu, 27 Feb 2020 12:52:47 +0300
+
+python-markdown (3.1.1-2) unstable; urgency=medium
+
+  * Upload to unstable.
+    - The 3.1 release is compatible with PyYaml 5.1 (closes: #933920).
+
+  [ Ondřej Nový ]
+  * Bump Standards-Version to 4.4.0.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Mon, 05 Aug 2019 22:03:47 +0300
+
+python-markdown (3.1.1-1) experimental; urgency=medium
+
+  * New upstream release.
+  * Build-depend and depend on python[3]-packaging.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Sat, 25 May 2019 13:42:45 +0300
+
+python-markdown (3.1-1) experimental; urgency=medium
+
+  * New upstream release.
+  * Drop fix_double_escaping.diff, included in the new release.
+  * Drop nose build-dependencies, no longer needed.
+  * Update autopkgtests to use unittest instead of nose.
+  * Add debian/gitlab-ci.yml using salsa-pipeline.
+  * Update to debhelper compat level 12.
+  * Update markdown_py(1) manpage, add a deprecation notice.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Wed, 01 May 2019 12:55:38 +0300
+
+python-markdown (3.0.1-3) unstable; urgency=medium
+
+  * Drop ignore_yaml_deprecation_warnings.diff, bug #917603 is fixed now.
+  * Backport upstream commit to fix double code escaping (closes: #919881).
+  * Bump Standards-Version to 4.3.0, no changes needed.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Sun, 20 Jan 2019 19:00:05 +0300
+
+python-markdown (3.0.1-2) unstable; urgency=medium
+
+  * Make python3-markdown depend on python3-pkg-resources.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Sun, 23 Dec 2018 12:40:34 +0300
+
+python-markdown (3.0.1-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Drop add_mkdocs_config.diff, no longer needed.
+  * Bump mkdocs build-dependency to 1.0.
+  * Bump mkdocs-nature build-dependency to 0.3.1.
+  * Use dh_mkdocs instead of dh_linktree.
+  * Add Markdown.egg-info to pybuild.testfiles to make the tests pass.
+  * Add a patch to ignore DeprecationWarnings from PyYAML module,
+    to make the tests pass with Python 3.7.
+  * Update to debhelper compatibility level 11.
+  * Rewrite debian/copyright using copyright format 1.0.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Sat, 22 Dec 2018 22:40:39 +0300
+
+python-markdown (2.6.11-3) unstable; urgency=medium
+
+  * Make python3-markdown autopkgtest depend on python3-all, and
+    use ‘py3versions -s’ instead of ‘py3versions -i’ (closes: #914994).
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Thu, 29 Nov 2018 14:43:51 +0300
+
+python-markdown (2.6.11-2) unstable; urgency=medium
+
+  * Make python-markdown depend on python-pkg-resources (closes: #913619).
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Tue, 13 Nov 2018 14:14:12 +0300
+
+python-markdown (2.6.11-1) unstable; urgency=medium
+
+  [ Dmitry Shachnev ]
+  * New upstream release.
+  * Remove Fredrik Steen from Uploaders list (closes: #877098).
+  * Add build-dependencies on setuptools.
+  * Add mkdocs.yml from upstream repository (add_mkdocs_config.diff).
+  * Build the documentation using mkdocs.
+  * Skip building python-markdown-doc with nodoc build profile.
+  * Add a patch to disable use_directory_urls mkdocs option,
+    to make it easier to browse the documentation locally.
+  * Symlink static files in python-markdown-doc.
+  * Update links in debian/README.Debian.
+  * Drop dh_auto_test override, rely on pybuild magic to run the tests.
+  * Bump Standards-Version to 4.2.1, no changes needed.
+
+  [ Ondřej Nový ]
+  * d/control: Set Vcs-* to salsa.debian.org
+  * d/changelog: Remove trailing whitespaces
+  * d/tests: Use AUTOPKGTEST_TMP instead of ADTTMP
+  * d/control: Remove ancient X-Python-Version field
+  * d/control: Remove ancient X-Python3-Version field
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Wed, 07 Nov 2018 09:44:55 +0300
+
+python-markdown (2.6.9-1) unstable; urgency=medium
+
+  * New upstream bugfix release.
+  * Update Homepage URL.
+  * Bump Standards-Version to 4.0.1, no changes needed.
+  * Update debian/copyright.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Fri, 18 Aug 2017 11:12:44 +0300
+
+python-markdown (2.6.8-1) unstable; urgency=medium
+
+  * New upstream bugfix release.
+  * Bump Standards-Version to 3.9.8, no changes needed.
+  * Add a debian/copyright entry for markdown/extensions/smartypants.py.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Thu, 26 Jan 2017 09:59:09 +0300
+
+python-markdown (2.6.7-1) unstable; urgency=medium
+
+  * New upstream bugfix release.
+  * Use https in debian/watch.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Sun, 25 Sep 2016 14:09:10 +0300
+
+python-markdown (2.6.6-1) unstable; urgency=medium
+
+  * New upstream bugfix release.
+  * Bump Standards-Version to 3.9.7, no changes needed.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Mon, 21 Mar 2016 07:47:01 +0100
+
+python-markdown (2.6.5-2) unstable; urgency=medium
+
+  * Add python3-tidylib to build-dependencies and test dependencies, now
+    that it's available.
+  * Cherry-pick upstream commit to make code highlighting tests work with
+    Pygments 2.1 (closes: #813028).
+  * Update Vcs-Git field to use HTTPS, which is now the recommended protocol
+    (refs #810378).
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Fri, 29 Jan 2016 08:32:30 +0300
+
+python-markdown (2.6.5-1) unstable; urgency=medium
+
+  * New upstream bugfix release.
+  * Drop XS-Testsuite header, not needed with recent dpkg versions.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Thu, 26 Nov 2015 18:59:49 +0300
+
+python-markdown (2.6.4-1) unstable; urgency=medium
+
+  * New upstream bugfix release.
+  * Cherry-pick upstream patch to fix a regression in tables processing.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Fri, 13 Nov 2015 17:51:57 +0300
+
+python-markdown (2.6.3-1) unstable; urgency=medium
+
+  * New upstream bugfix release.
+  * Update Vcs fields for git migration.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Tue, 27 Oct 2015 15:14:04 +0300
+
+python-markdown (2.6.2-1) unstable; urgency=medium
+
+  * New upstream bugfix release.
+  * Bring debian/markdown_py.1 in sync with upstream help output.
+  * Add some missing information to debian/copyright.
+  * Bump python-all build-dependency to a version that introduced
+    Python 2.7.
+  * Upload to unstable.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Fri, 24 Apr 2015 12:50:39 +0300
+
+python-markdown (2.6.1-1) experimental; urgency=medium
+
+  * New upstream bugfix release.
+  * Update package descriptions.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Mon, 09 Mar 2015 18:44:45 +0300
+
+python-markdown (2.6-1) experimental; urgency=medium
+
+  * New upstream release.
+    - No longer calls logging.captureWarnings on input (closes: #776591).
+  * Update debian/watch to point to pypi.debian.net.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Fri, 20 Feb 2015 11:00:34 +0300
+
+python-markdown (2.5.2-1) experimental; urgency=medium
+
+  * New upstream bugfix release.
+  * Drop disable_wrong_tests.patch, no longer needed.
+  * Bump Standards-Version to 3.9.6, no changes needed.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Fri, 21 Nov 2014 09:17:16 +0300
+
+python-markdown (2.5.1-2) unstable; urgency=medium
+
+  * Disable two tests that were relying on wrong assumption about Pygments
+    lexer guessing algorithm (closes: #767579).
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Sat, 01 Nov 2014 12:34:55 +0300
+
+python-markdown (2.5.1-1) unstable; urgency=medium
+
+  * New upstream bugfix release.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Sat, 04 Oct 2014 10:57:08 +0400
+
+python-markdown (2.5-2) unstable; urgency=medium
+
+  * Bump X-Python-Version to 2.7 and X-Python3-Version to 3.2,
+    following upstream changes.
+  * Add python(3)-yaml and python(3)-pygments to autopkgtest
+    dependencies as well.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Mon, 15 Sep 2014 14:00:09 +0400
+
+python-markdown (2.5-1) unstable; urgency=medium
+
+  [ Andrey Rahmatullin ]
+  * Convert to pybuild.
+
+  [ Dmitry Shachnev ]
+  * New upstream release.
+  * Simplify debian/rules.
+  * Drop upstream smarty_fixes.patch.
+  * Build-depend on and recommend python(3)-yaml.
+  * Also build-depend on python(3)-pygments.
+  * Run wrap-and-sort.
+  * Update my e-mail address.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Sun, 14 Sep 2014 11:40:01 +0400
+
+python-markdown (2.4.1-1) unstable; urgency=medium
+
+  * New upstream bugfix release.
+  * Backport upstream commits to make smarty extension work together
+    with attr_list.
+
+ -- Dmitry Shachnev <mitya57@gmail.com>  Tue, 27 May 2014 12:51:34 +0400
+
+python-markdown (2.4-1) unstable; urgency=low
+
+  [ Dmitry Shachnev ]
+  * New upstream release.
+  * Bump Standards-Version to 3.9.5, no changes needed.
+  * Add explicit build-dependency on dh-python.
+
+  [ Bernd Zeimetz ]
+  * Removing myself from Uploaders.
+
+ -- Dmitry Shachnev <mitya57@gmail.com>  Mon, 17 Feb 2014 15:19:36 +0400
+
+python-markdown (2.3.1-2) unstable; urgency=low
+
+  * Update man page:
+    - Correctly escape hyphens.
+    - Make DESCRIPTION section come after SYNOPSIS and remove
+      AUTHOR section.
+  * Really remove suggestion of python-utidylib, HTML Tidy extension
+    has been removed in 2.3.
+  * debian/watch: use HTTPS, and correctly escape dots.
+  * Update debian/copyright (closes: #728134, thanks Luke Faraone).
+
+ -- Dmitry Shachnev <mitya57@gmail.com>  Tue, 29 Oct 2013 20:14:29 +0400
+
+python-markdown (2.3.1-1) unstable; urgency=low
+
+  * New upstream release, with native Python 3 support.
+  * Build-depend on python-tidylib instead of python-utidylib,
+    and drop python-markdown dependency on python-utidylib.
+  * debian/rules, debian/tests: use /usr/bin/nosetests for all Python
+    versions, and make the tests output more verbose.
+  * Force buildsystem to be python_distutils.
+  * Update debian/README.Debian.
+  * Drop obsolete DM-Upload-Allowed flag.
+  * Bump Standards-Version to 3.9.4, no changes needed.
+  * Bump debhelper compat level to 9.
+  * Use canonical Vcs-Svn field.
+
+ -- Dmitry Shachnev <mitya57@gmail.com>  Sat, 23 Mar 2013 14:51:20 +0400
+
+python-markdown (2.2.1-3) unstable; urgency=low
+
+  * Redirect tests stderr to stdout and don't set -x, thanks to Martin Pitt
+    (closes: #692813)
+  * Update to 2012-11-09 from upstream git
+
+ -- Dmitry Shachnev <mitya57@gmail.com>  Wed, 14 Nov 2012 09:03:07 +0400
+
+python-markdown (2.2.1-2) unstable; urgency=low
+
+  * debian/tests/control: fix wrong dependency for python3-markdown test
+
+ -- Dmitry Shachnev <mitya57@gmail.com>  Tue, 06 Nov 2012 10:48:11 +0400
+
+python-markdown (2.2.1-1) unstable; urgency=low
+
+  * New upstream release
+  * Simplify .install files
+  * Add python-utidylib to python-markdown Suggests (for html_tidy extension)
+    and to Build-Depends (for testsuite)
+  * git_fix_tests.patch: dropped, no longer needed
+  * Add DEP-8 tests
+  * debian/rules: skip tests for Python versions unsupported by nose
+
+ -- Dmitry Shachnev <mitya57@gmail.com>  Mon, 05 Nov 2012 13:28:13 +0400
+
+python-markdown (2.2.0-1) unstable; urgency=low
+
+  * New upstream release
+  * Recommend python[3]-pygments packages (needed for codehilite extension)
+  * Adjust to upstream documentation changes
+  * Don't compress text files that go with the documentation
+  * git_fix_inline_html.patch: dropped, applied in the new release
+  * git_fix_tests.patch: patch from upstream git to fix test suite failures
+
+ -- Dmitry Shachnev <mitya57@gmail.com>  Sun, 29 Jul 2012 14:20:06 +0400
+
+python-markdown (2.1.1-3) unstable; urgency=low
+
+  [ Dmitry Shachnev ]
+  * Bump Standards-Version to 3.9.3
+  * Make module packages suggest the doc package
+  * Add doc-base file
+  * Run tests during build
+  * Add debian/patches/git_fix_inline_html.patch to fix issues with
+    inline html handling (closes: #646552)
+
+  [ Bernd Zeimetz ]
+  * Setting DM-Upload-Allowed: yes
+
+ -- Bernd Zeimetz <bzed@debian.org>  Sat, 05 May 2012 22:31:31 +0200
+
+python-markdown (2.1.1-2) unstable; urgency=low
+
+  * Switch to debhelper 8
+  * Add python-markdown-doc package
+
+ -- Dmitry Shachnev <mitya57@gmail.com>  Thu, 16 Feb 2012 19:06:04 +0400
+
+python-markdown (2.1.1-1) unstable; urgency=low
+
+  * Add myself to Uploaders
+  * New upstream release
+  * Add debian/markdown_py.1 manpage
+  * Drop 01-fix-unusual-interpreter.patch, fixed upstream
+
+ -- Dmitry Shachnev <mitya57@gmail.com>  Wed, 25 Jan 2012 13:26:18 +0400
+
+python-markdown (2.1.0-1) unstable; urgency=low
+
+  [ Dmitry Shachnev ]
+  * New upstream release
+  * Use 3.0 (quilt) source format
+  * Port to dh_python*
+  * Build Python3 package (closes: #647094)
+  * debian/patches/01-fix-unusual-interpreter.patch:
+    - fix interpreter in def_list and tables extensions
+  * Bump Standards-Version to 3.9.2, no changes required
+
+ -- Debian Python Modules Team <python-modules-team@lists.alioth.debian.org>  Sun, 22 Jan 2012 15:24:30 +0400
+
+python-markdown (2.0.3-2) unstable; urgency=low
+
+  * Rename /usr/bin/markdown to /usr/bin/markdown_py for now. The Python
+    implementation is not compatible enough to be an alternative for the Perl
+    version yet. (Closes: #567378)
+  * Get rid of the new source format mess, we use the default.
+  * Add .PHONY to debian/rules.
+  * Bump Standards-Version to 3.8.4 - no changes needed.
+  * Drop XB-Python-Version, not needed.
+
+ -- Bernd Zeimetz <bzed@debian.org>  Wed, 24 Feb 2010 23:24:10 +0100
+
+python-markdown (2.0.3-1) unstable; urgency=low
+
+  [ Raphaël Hertzog ]
+  * New upstream release. Closes: #525563
+  * Remove myself from Uploaders.
+  * Update watch file to point to pypi.
+  * Switch to source format "3.0 (quilt)".
+  * Fix URL in README.Debian. Closes: #532416
+  * Switch to debhelper 7 tiny rules files and compat mode 7.
+  * Build-depends on python instead of python-dev.
+  * Update Standards-Version to 3.8.3.
+
+ -- Debian Python Modules Team <python-modules-team@lists.alioth.debian.org>  Wed, 27 Jan 2010 17:48:00 +0100
+
+python-markdown (1.7-2) unstable; urgency=low
+
+  [ Sandro Tosi ]
+  * debian/control
+    - switch Vcs-Browser field to viewsvn
+
+  [ Emilio Pozuelo Monfort ]
+  * debian/rules: Don't rely on python-support directory
+    structure. Thanks Josselin Mouette. Closes: #517061.
+  * Standards-Version is 3.8.0. No changes needed.
+
+ -- Debian Python Modules Team <python-modules-team@lists.alioth.debian.org>  Wed, 25 Feb 2009 23:35:20 +0100
+
+python-markdown (1.7-1) unstable; urgency=low
+
+  [ Bernd Zeimetz ]
+  * New upstream version.
+  * debian/control:
+    - Adding Homepage field, removing pseudo-field from description
+    - Rename XS-Vcs-* fields to Vcs-* (dpkg supports them now)
+    - Updating my email address
+    - Bumping Standards-Version to 3.7.3 - no changes needed.
+
+  [ Sandro Tosi ]
+  * debian/control
+    - uniforming Vcs-Browser field
+
+ -- Bernd Zeimetz <bzed@debian.org>  Sun, 02 Mar 2008 23:43:50 +0100
+
+python-markdown (1.6b-1) unstable; urgency=low
+
+  * New upstream version
+
+ -- Bernd Zeimetz <bernd@bzed.de>  Sun, 19 Aug 2007 01:41:04 +0200
+
+python-markdown (1.6a-1) unstable; urgency=low
+
+  * New upstream version (Closes: #398856)
+  * debian/control:
+    - Added XS-Vcs-Browser, XS-Vcs-Svn field
+    - Moved python-support to Build-Depends, fixing lintian
+      error clean-should-be-satisfied-by-build-depends
+  * debian/watch:
+    - Updating watch file - upstream ships a .zip file now
+  * debian/changelog.pointer:
+    - Removing file, upstream ships a changelog now
+  * debian/README.Debian:
+    - Updated, upstream ships a changelog now
+  * debian/copyright:
+    - Reflecting upstreams change in licensing, markdown is dual-licensed
+      under GPL-2 and BSD now
+  * debian/dirs:
+    - Removing file, not needed anymore
+  * debian/compat:
+    - Bumping to level 5
+
+ -- Bernd Zeimetz <bernd@bzed.de>  Sat, 18 Aug 2007 14:36:15 +0200
+
+python-markdown (1.4-2) unstable; urgency=low
+
+  * Acknowledge previous NMU. Closes: #374865
+  * Update to new python policy. Closes: #373326
+  * Updated Standards-Version.
+  * Added myself to uploaders.
+
+ -- Raphael Hertzog <hertzog@debian.org>  Fri, 23 Jun 2006 10:48:53 +0200
+
+python-markdown (1.4-1.1) unstable; urgency=high
+
+  * Non-maintainer upload.
+  * Build-depend on python-dev instead of python; fixes FTBFS, patch from
+    Andreas Jochens. (Closes: #373201)
+
+ -- Steinar H. Gunderson <sesse@debian.org>  Tue, 20 Jun 2006 23:53:45 +0200
+
+python-markdown (1.4-1) unstable; urgency=low
+
+  * Initial release Closes: #364082
+
+ -- Fredrik Steen <stone@debian.org>  Fri, 21 Apr 2006 13:18:31 +0200

@@ -1,0 +1,22 @@
+From: Dmitry Shachnev <mitya57@gmail.com>
+Date: Fri, 12 Jan 2018 19:12:39 +0300
+Subject: Do not use directory URLs for the documentation
+
+To make it easier to browse the documentation locally.
+---
+ mkdocs.yml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/mkdocs.yml b/mkdocs.yml
+index 95fa9a7..43a000f 100644
+--- a/mkdocs.yml
++++ b/mkdocs.yml
+@@ -4,7 +4,7 @@ repo_url: https://github.com/Python-Markdown/markdown
+ site_author: "The Python-Markdown Project"
+ copyright: "Copyright &copy; 2010-2017"
+ 
+-use_directory_urls: true
++use_directory_urls: false
+ 
+ theme:
+   name: nature

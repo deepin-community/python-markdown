@@ -1,0 +1,57 @@
+Source: python-markdown
+Section: python
+Priority: optional
+Maintainer: Debian Python Team <team+python@tracker.debian.org>
+Uploaders: Dmitry Shachnev <mitya57@debian.org>
+Build-Depends: debhelper-compat (= 13),
+               dh-python (>= 3.20180313~),
+               mkdocs (>= 1.0.4+dfsg-1~) <!nodoc>,
+               mkdocs-nature (>= 0.3.1) <!nodoc>,
+               python3-all (>= 3.1.2-7~),
+               python3-packaging,
+               python3-pygments,
+               python3-setuptools,
+               python3-tidylib,
+               python3-yaml
+Rules-Requires-Root: no
+Standards-Version: 4.5.1
+Homepage: https://github.com/Python-Markdown/markdown
+Vcs-Git: https://salsa.debian.org/python-team/packages/python-markdown.git
+Vcs-Browser: https://salsa.debian.org/python-team/packages/python-markdown
+
+Package: python3-markdown
+Architecture: all
+Depends: python3-pkg-resources, ${misc:Depends}, ${python3:Depends}
+Recommends: python3-pygments, python3-yaml
+Suggests: python-markdown-doc
+Breaks: python-markdown (<< 3.1.1-4), python3-mdx-math (<< 0.7-2~)
+Replaces: python-markdown (<< 3.1.1-4)
+Description: text-to-HTML conversion library/tool (Python 3 version)
+ Markdown is a text-to-HTML conversion tool for web writers. Markdown
+ allows you to write using an easy-to-read, easy-to-write plain text
+ format, then convert it to structurally valid XHTML (or HTML).
+ .
+ This is a Python implementation of John Gruber's Markdown. The current
+ version of python-markdown implements all Markdown syntax features and
+ fully passes Markdown Test Suite 1.0. It also supports footnotes and
+ attributes.
+ .
+ This package contains all the files needed to use Markdown with Python
+ 3.x.
+
+Package: python-markdown-doc
+Build-Profiles: <!nodoc>
+Architecture: all
+Depends: ${misc:Depends}, ${mkdocs:Depends}
+Section: doc
+Description: text-to-HTML conversion library/tool (documentation)
+ Markdown is a text-to-HTML conversion tool for web writers. Markdown
+ allows you to write using an easy-to-read, easy-to-write plain text
+ format, then convert it to structurally valid XHTML (or HTML).
+ .
+ This is a Python implementation of John Gruber's Markdown. The current
+ version of python-markdown implements all Markdown syntax features and
+ fully passes Markdown Test Suite 1.0. It also supports footnotes and
+ attributes.
+ .
+ This package contains HTML documentation files for python-markdown.

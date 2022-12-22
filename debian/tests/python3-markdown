@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -eu
+cp -r tests "$AUTOPKGTEST_TMP/"
+cd "$AUTOPKGTEST_TMP"
+
+export PYGMENTS_VERSION=2.7.1
+
+for python in $(py3versions -s); do
+	PYTHONWARNINGS=d $python -m unittest discover -v tests 2>&1
+done

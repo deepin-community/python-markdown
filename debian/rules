@@ -1,0 +1,25 @@
+#!/usr/bin/make -f
+# -*- mode: makefile; coding: utf-8 -*-
+
+export PYBUILD_NAME=markdown
+export PYGMENTS_VERSION=2.7.1
+
+%:
+	dh $@ --with python3 --buildsystem=pybuild
+
+override_dh_auto_build:
+	dh_auto_build
+ifeq ($(filter nodoc,$(DEB_BUILD_OPTIONS)),)
+	LC_ALL=C.UTF-8 mkdocs build -d build/docs
+endif
+
+ifeq ($(filter nodoc,$(DEB_BUILD_OPTIONS)),)
+override_dh_installdocs:
+	dh_installdocs
+	dh_mkdocs -T mkdocs -T libjs-underscore -T mkdocs-nature
+endif
+
+override_dh_compress:
+	dh_compress -X.txt -Xfavicon.ico -Xsearch_index.json -Xsitemap.xml
+
+.PHONY: override_dh_auto_build override_dh_compress
