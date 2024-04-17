@@ -2,12 +2,10 @@ INSTALL.md
 LICENSE.md
 MANIFEST.in
 README.md
-doc-requirements.txt
 makefile
 mkdocs.yml
 pyproject.toml
-setup.cfg
-setup.py
+tox.ini
 Markdown.egg-info/PKG-INFO
 Markdown.egg-info/SOURCES.txt
 Markdown.egg-info/dependency_links.txt
@@ -15,11 +13,14 @@ Markdown.egg-info/entry_points.txt
 Markdown.egg-info/requires.txt
 Markdown.egg-info/top_level.txt
 docs/authors.md
+docs/changelog.md
 docs/cli.md
 docs/contributing.md
+docs/custom.css
 docs/favicon.ico
 docs/index.md
 docs/install.md
+docs/mkdocstrings.css
 docs/py.png
 docs/reference.md
 docs/test_tools.md
@@ -31,10 +32,6 @@ docs/change_log/release-2.3.md
 docs/change_log/release-2.4.md
 docs/change_log/release-2.5.md
 docs/change_log/release-2.6.md
-docs/change_log/release-3.0.md
-docs/change_log/release-3.1.md
-docs/change_log/release-3.2.md
-docs/change_log/release-3.3.md
 docs/extensions/abbreviations.md
 docs/extensions/admonition.md
 docs/extensions/api.md
@@ -55,6 +52,11 @@ docs/extensions/smarty.md
 docs/extensions/tables.md
 docs/extensions/toc.md
 docs/extensions/wikilinks.md
+docs/templates/python/nature/attribute.html
+docs/templates/python/nature/class.html
+docs/templates/python/nature/function.html
+docs/templates/python/nature/module.html
+docs/templates/python/nature/docstring/admonition.html
 markdown/__init__.py
 markdown/__main__.py
 markdown/__meta__.py
@@ -63,7 +65,6 @@ markdown/blockprocessors.py
 markdown/core.py
 markdown/htmlparser.py
 markdown/inlinepatterns.py
-markdown/pep562.py
 markdown/postprocessors.py
 markdown/preprocessors.py
 markdown/serializers.py
@@ -89,6 +90,8 @@ markdown/extensions/smarty.py
 markdown/extensions/tables.py
 markdown/extensions/toc.py
 markdown/extensions/wikilinks.py
+scripts/gen_ref_nav.py
+scripts/griffe_extensions.py
 tests/__init__.py
 tests/test_apis.py
 tests/test_extensions.py
@@ -142,8 +145,6 @@ tests/extensions/nl2br_w_attr_list.html
 tests/extensions/nl2br_w_attr_list.txt
 tests/extensions/sane_lists.html
 tests/extensions/sane_lists.txt
-tests/extensions/smarty.html
-tests/extensions/smarty.txt
 tests/extensions/toc.html
 tests/extensions/toc.txt
 tests/extensions/toc_invalid.html
@@ -180,8 +181,6 @@ tests/extensions/extra/raw-html.html
 tests/extensions/extra/raw-html.txt
 tests/extensions/extra/simple_def-lists.html
 tests/extensions/extra/simple_def-lists.txt
-tests/extensions/extra/tables.html
-tests/extensions/extra/tables.txt
 tests/misc/CRLF_line_ends.html
 tests/misc/CRLF_line_ends.txt
 tests/misc/adjacent-headers.html
@@ -360,6 +359,7 @@ tests/test_syntax/blocks/test_headers.py
 tests/test_syntax/blocks/test_hr.py
 tests/test_syntax/blocks/test_html_blocks.py
 tests/test_syntax/blocks/test_paragraphs.py
+tests/test_syntax/blocks/test_ul.py
 tests/test_syntax/extensions/__init__.py
 tests/test_syntax/extensions/test_abbr.py
 tests/test_syntax/extensions/test_admonition.py
@@ -371,9 +371,11 @@ tests/test_syntax/extensions/test_footnotes.py
 tests/test_syntax/extensions/test_legacy_attrs.py
 tests/test_syntax/extensions/test_legacy_em.py
 tests/test_syntax/extensions/test_md_in_html.py
+tests/test_syntax/extensions/test_smarty.py
 tests/test_syntax/extensions/test_tables.py
 tests/test_syntax/extensions/test_toc.py
 tests/test_syntax/inline/__init__.py
+tests/test_syntax/inline/test_autolinks.py
 tests/test_syntax/inline/test_emphasis.py
 tests/test_syntax/inline/test_entities.py
 tests/test_syntax/inline/test_images.py

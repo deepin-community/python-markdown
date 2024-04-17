@@ -12,7 +12,7 @@ Maintained for a few years by Yuri Takhteyev (http://www.freewisdom.org).
 Currently maintained by Waylan Limberg (https://github.com/waylan),
 Dmitry Shachnev (https://github.com/mitya57) and Isaac Muse (https://github.com/facelessuser).
 
-Copyright 2007-2020 The Python Markdown Project (v. 1.7 and later)
+Copyright 2007-2023 The Python Markdown Project (v. 1.7 and later)
 Copyright 2004, 2005, 2006 Yuri Takhteyev (v. 0.2-1.6b)
 Copyright 2004 Manfred Stienstra (the original version)
 
@@ -28,7 +28,7 @@ class TestBlockquoteBlocks(TestCase):
 
     def test_nesting_limit(self):
         # Test that the nesting limit is within 100 levels of recursion limit. Future code changes could cause the
-        # recursion limit to need adjusted here. We need to acocunt for all of Markdown's internal calls. Finally, we
+        # recursion limit to need adjusted here. We need to account for all of Markdown's internal calls. Finally, we
         # need to account for the 100 level cushion which we are testing.
         with recursionlimit(120):
             self.assertMarkdownRenders(

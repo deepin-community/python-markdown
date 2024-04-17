@@ -1,0 +1,23 @@
+From: Dmitry Shachnev <mitya57@debian.org>
+Date: Tue, 25 Jul 2023 22:56:54 +0300
+Subject: Disable mdx_gh_links extension
+
+It is not packaged in Debian yet.
+---
+ mkdocs.yml | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/mkdocs.yml b/mkdocs.yml
+index 9203fa7..4b8fdd9 100644
+--- a/mkdocs.yml
++++ b/mkdocs.yml
+@@ -59,9 +59,6 @@ markdown_extensions:
+   - codehilite
+   - toc:
+       permalink: true
+-  - mdx_gh_links:
+-      user: Python-Markdown
+-      repo: markdown
+ 
+ plugins:
+ - search

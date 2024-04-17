@@ -1,0 +1,61 @@
+From: Dmitry Shachnev <mitya57@debian.org>
+Date: Mon, 18 Mar 2024 00:21:30 +0300
+Subject: Fixed links to source code on GitHub from the documentation
+
+Forwarded: https://github.com/Python-Markdown/markdown/pull/1453
+---
+ docs/templates/python/nature/attribute.html | 2 +-
+ docs/templates/python/nature/class.html     | 2 +-
+ docs/templates/python/nature/function.html  | 2 +-
+ docs/templates/python/nature/module.html    | 2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/docs/templates/python/nature/attribute.html b/docs/templates/python/nature/attribute.html
+index 8df5453..906d292 100644
+--- a/docs/templates/python/nature/attribute.html
++++ b/docs/templates/python/nature/attribute.html
+@@ -1,7 +1,7 @@
+ {% extends "_base/attribute.html" %}
+ 
+ {% block heading scoped %}
+-  <a class="doc-source-link" href="{{ config.source.repo }}/tree/{{ config.source.tag }}/{{ attribute.filepath }}#L{{ attribute.lineno }}{% if attribute.endlineno > attribute.lineno %}-L{{ attribute.endlineno }}{% endif %}" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
++  <a class="doc-source-link" href="{{ config.source.repo }}/tree/{{ config.source.tag }}/{{ attribute.relative_filepath }}#L{{ attribute.lineno }}{% if attribute.endlineno > attribute.lineno %}-L{{ attribute.endlineno }}{% endif %}" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+   {% if config.show_symbol_type_heading %}<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>{% endif %}
+   {%+ filter highlight(language="python", inline=True) %}
+     {{ attribute_name }}{% if attribute.annotation %}: {{ attribute.annotation }}{% endif %}
+diff --git a/docs/templates/python/nature/class.html b/docs/templates/python/nature/class.html
+index 7193c34..dc8b585 100644
+--- a/docs/templates/python/nature/class.html
++++ b/docs/templates/python/nature/class.html
+@@ -1,6 +1,6 @@
+ {% extends "_base/class.html" %}
+ 
+ {% block heading scoped %}
+-  <a class="doc-source-link" href="{{ config.source.repo }}/tree/{{ config.source.tag }}/{{ class.filepath }}#L{{ class.lineno }}" title="{{ config.source.title }}">&lsaquo;&rsaquo;</a>
++  <a class="doc-source-link" href="{{ config.source.repo }}/tree/{{ config.source.tag }}/{{ class.relative_filepath }}#L{{ class.lineno }}" title="{{ config.source.title }}">&lsaquo;&rsaquo;</a>
+   {{ super() }}
+ {% endblock heading %}
+diff --git a/docs/templates/python/nature/function.html b/docs/templates/python/nature/function.html
+index 82a696a..9703647 100644
+--- a/docs/templates/python/nature/function.html
++++ b/docs/templates/python/nature/function.html
+@@ -1,6 +1,6 @@
+ {% extends "_base/function.html" %}
+ 
+ {% block heading scoped %}
+-  <a class="doc-source-link" href="{{ config.source.repo }}/tree/{{ config.source.tag }}/{{ function.filepath }}#L{{ function.lineno }}{% if function.endlineno > function.lineno %}-L{{ function.endlineno }}{% endif %}" title="{{ config.source.title }}">&lsaquo;&rsaquo;</a>
++  <a class="doc-source-link" href="{{ config.source.repo }}/tree/{{ config.source.tag }}/{{ function.relative_filepath }}#L{{ function.lineno }}{% if function.endlineno > function.lineno %}-L{{ function.endlineno }}{% endif %}" title="{{ config.source.title }}">&lsaquo;&rsaquo;</a>
+   {{ super() }}
+ {% endblock heading %}
+diff --git a/docs/templates/python/nature/module.html b/docs/templates/python/nature/module.html
+index 4d758a3..0b9b9f0 100644
+--- a/docs/templates/python/nature/module.html
++++ b/docs/templates/python/nature/module.html
+@@ -1,6 +1,6 @@
+ {% extends "_base/module.html" %}
+ 
+ {% block heading scoped %}
+-  <a class="doc-source-link" href="{{ config.source.repo }}/tree/{{ config.source.tag }}/{{ module.filepath }}" title="{{ config.source.title }}">&lsaquo;&rsaquo;</a>
++  <a class="doc-source-link" href="{{ config.source.repo }}/tree/{{ config.source.tag }}/{{ module.relative_filepath }}" title="{{ config.source.title }}">&lsaquo;&rsaquo;</a>
+   {{ super() }}
+ {% endblock heading %}
