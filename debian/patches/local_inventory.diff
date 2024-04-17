@@ -1,0 +1,22 @@
+From: Dmitry Shachnev <mitya57@debian.org>
+Date: Sun, 17 Mar 2024 23:40:01 +0300
+Subject: Use local Python inventory file
+
+Forwarded: not-needed
+---
+ mkdocs.yml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/mkdocs.yml b/mkdocs.yml
+index 0690380..c529e2d 100644
+--- a/mkdocs.yml
++++ b/mkdocs.yml
+@@ -73,7 +73,7 @@ plugins:
+     handlers:
+       python:
+         import:
+-        - https://docs.python.org/3/objects.inv
++        - file:///usr/share/doc/python3-doc/html/objects.inv
+         options:
+           annotations_path: brief
+           docstring_options:

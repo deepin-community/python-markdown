@@ -8,15 +8,15 @@ To make it easier to browse the documentation locally.
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/mkdocs.yml b/mkdocs.yml
-index 95fa9a7..43a000f 100644
+index fb4aff9..9203fa7 100644
 --- a/mkdocs.yml
 +++ b/mkdocs.yml
 @@ -4,7 +4,7 @@ repo_url: https://github.com/Python-Markdown/markdown
  site_author: "The Python-Markdown Project"
- copyright: "Copyright &copy; 2010-2017"
+ copyright: "Copyright &copy; 2010-2023"
  
 -use_directory_urls: true
 +use_directory_urls: false
+ watch: [markdown, scripts]
  
  theme:
-   name: nature

@@ -48,7 +48,7 @@ of the distribution or the project website at <https://Python-Markdown.github.io
 [installation]: https://python-markdown.github.io/install/
 [usage]: https://python-markdown.github.io/reference/
 
-See the change log at <https://Python-Markdown.github.io/change_log>.
+See the change log at <https://python-markdown.github.io/changelog/>.
 
 Support
 -------
@@ -60,5 +60,5 @@ You may report bugs, ask for help, and discuss various other issues on the [bug 
 Code of Conduct
 ---------------
 
-Everyone interacting in the Python-Markdown project's codebases, issue trackers,
+Everyone interacting in the Python-Markdown project's code bases, issue trackers,
 and mailing lists is expected to follow the [Code of Conduct].

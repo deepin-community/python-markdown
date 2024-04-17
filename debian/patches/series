@@ -1,1 +1,4 @@
 disable_directory_urls.diff
+disable_gh_links.diff
+local_inventory.diff
+source_code_links.diff

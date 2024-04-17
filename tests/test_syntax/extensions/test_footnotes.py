@@ -12,7 +12,7 @@ Maintained for a few years by Yuri Takhteyev (http://www.freewisdom.org).
 Currently maintained by Waylan Limberg (https://github.com/waylan),
 Dmitry Shachnev (https://github.com/mitya57) and Isaac Muse (https://github.com/facelessuser).
 
-Copyright 2007-2018 The Python Markdown Project (v. 1.7 and later)
+Copyright 2007-2023 The Python Markdown Project (v. 1.7 and later)
 Copyright 2004, 2005, 2006 Yuri Takhteyev (v. 0.2-1.6b)
 Copyright 2004 Manfred Stienstra (the original version)
 
@@ -266,7 +266,7 @@ class TestFootnotes(TestCase):
         )
 
     def test_backlink_text(self):
-        """Test backlink configuration."""
+        """Test back-link configuration."""
 
         self.assertMarkdownRenders(
             'paragraph[^1]\n\n[^1]: A Footnote',
@@ -299,4 +299,40 @@ class TestFootnotes(TestCase):
             '</ol>\n'
             '</div>',
             extension_configs={'footnotes': {'SEPARATOR': '-'}}
+        )
+
+    def test_backlink_title(self):
+        """Test back-link title configuration without placeholder."""
+
+        self.assertMarkdownRenders(
+            'paragraph[^1]\n\n[^1]: A Footnote',
+            '<p>paragraph<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>\n'
+            '<div class="footnote">\n'
+            '<hr />\n'
+            '<ol>\n'
+            '<li id="fn:1">\n'
+            '<p>A Footnote&#160;<a class="footnote-backref" href="#fnref:1"'
+            ' title="Jump back to footnote">&#8617;</a></p>\n'
+            '</li>\n'
+            '</ol>\n'
+            '</div>',
+            extension_configs={'footnotes': {'BACKLINK_TITLE': 'Jump back to footnote'}}
+        )
+
+    def test_superscript_text(self):
+        """Test superscript text configuration."""
+
+        self.assertMarkdownRenders(
+            'paragraph[^1]\n\n[^1]: A Footnote',
+            '<p>paragraph<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">[1]</a></sup></p>\n'
+            '<div class="footnote">\n'
+            '<hr />\n'
+            '<ol>\n'
+            '<li id="fn:1">\n'
+            '<p>A Footnote&#160;<a class="footnote-backref" href="#fnref:1"'
+            ' title="Jump back to footnote 1 in the text">&#8617;</a></p>\n'
+            '</li>\n'
+            '</ol>\n'
+            '</div>',
+            extension_configs={'footnotes': {'SUPERSCRIPT_TEXT': '[{}]'}}
         )
